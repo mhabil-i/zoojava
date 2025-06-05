@@ -1,0 +1,4 @@
+#BlueJ class context
+comment0.target=DietType
+comment0.text=\r\n\ \ \ what\ is\ enum\ for?\r\n\ \ \ -prevent\ typo\r\n\ \ \ -fixed\ data\r\n\ \ \ -one\ instance\ per\ value\r\n\ \ \ -can\ work\ with\ comparison\ (\=\=)\r\n\ \ \ -can\ use\ switch(enum)\r\n\ \ \ \r\n\ \ \ without\ enum,\ in\ classes\:\r\n\ \ \ -new\ method\ can\ override\ classes\ //\ new\ DietType("autotroph")\r\n\ \ \ -manually\ reuse\ objects\r\n\ \ \ -can\ make\ many\ duplicates\r\n\ \ \ -must\ be\ .equals()\r\n\ \ \ -must\ use\ if/else\r\n
+numComments=1

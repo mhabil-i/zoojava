@@ -1,0 +1,13 @@
+| Topic                       | How You Can Add It                                                                           |
+| --------------------------- | -------------------------------------------------------------------------------------------- |
+| **File I/O**                | Save and load animals to/from `.txt` or `.csv` file using `FileWriter` and `Scanner`.        |
+| **Inheritance**             | Create a superclass `Organism`, and have `Animal` and `Plant` extend it.                     |
+| **Polymorphism**            | Use method overriding in `Animal` and `Plant` (e.g., a `describe()` method from `Organism`). |
+| **Abstract Class**          | Convert `Organism` to an abstract class with an abstract method like `describe()`.           |
+| **Static Fields & Methods** | Add a static counter to track how many animals were created.                                 |
+| **GUI with Swing/JavaFX**   | Optional GUI version of animal input using `JFrame`, `JButton`, etc.                         |
+| **Custom Exceptions**       | Create a custom exception like `InvalidDietTypeException`.                                   |
+| **Generics**                | Use generics for a utility class that can operate on both `Animal` and `Plant`.              |
+| **Serialization**           | Serialize `AnimalInfo` object to save/load full state using `ObjectOutputStream`.            |
+| **Multithreading**          | Not necessary for this app, but could be simulated for background autosave.                  |
+| **JUnit Testing**           | Create tests for `Animal` behaviors or input parsing logic.                                  |
