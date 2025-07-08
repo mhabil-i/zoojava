@@ -1,4 +1,5 @@
 // ✅ Abstract class for inheriting to animal and plant class
+// polymorphism using @Override
 
 public abstract class Organism
 {

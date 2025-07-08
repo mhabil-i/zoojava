@@ -2,6 +2,7 @@
 // ✅ Constructor with parameters
 // ✅ Interface Implementation (AnimalBehavior)
 // ✅ Enum as a property
+//polymorphism
 
 class Animal extends Organism implements AnimalBehavior
 //make sure declare all
@@ -48,6 +49,7 @@ class Animal extends Organism implements AnimalBehavior
         return sound;
     }
     
+    //polymorphism
     @Override
     public String getOrganismType(){
         return "Animal";
