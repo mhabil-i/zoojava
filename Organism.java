@@ -3,14 +3,21 @@
 
 public abstract class Organism
 {
-    protected String name;
+    private String name;
+    
     public  Organism(String name)
     {
         this.name = name;
     }
+    
     public String getName(){
         return name;
     }
     
     public abstract String getOrganismType();
+    
+    //polymorphism method to override
+    public void describe(){
+        System.out.println(getOrganismType() + ": " + getName() );
+    }
 }

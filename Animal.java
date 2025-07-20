@@ -10,7 +10,7 @@ class Animal extends Organism implements AnimalBehavior
     //using encapsulation must be followed by getter or ide became crazy asking for the class to be abstract
     private String name;
     private DietType dietType;
-    private boolean meat;
+    private double foodWeight;
     private String sound;
     
     //this is a constructor. below is method
@@ -24,11 +24,11 @@ class Animal extends Organism implements AnimalBehavior
         }
     }
        */
-    public Animal(String name, DietType dietType, boolean meat, String sound){
+    public Animal(String name, DietType dietType, double foodWeight, String sound){
         super(name);
         this.name = name;
         this.dietType = dietType;
-        this.meat = meat;
+        this.foodWeight = foodWeight;
         this.sound = sound;
     }
     
@@ -41,11 +41,11 @@ class Animal extends Organism implements AnimalBehavior
         return dietType;
     }
     
-    public boolean isMeat(){
-        return meat;
+    public double getFoodWeight(){
+        return foodWeight;
     }
     
-    public String sound(){
+    public String getSound(){
         return sound;
     }
     
@@ -55,4 +55,11 @@ class Animal extends Organism implements AnimalBehavior
         return "Animal";
     }
     
+    @Override
+    public void describe(){
+        System.out.println("Animal: " + name);
+        System.out.println("- Diet: " + dietType);
+        System.out.println("- Sound: " + sound);
+        System.out.println("- Food Weight: " + foodWeight);
+    }
 }

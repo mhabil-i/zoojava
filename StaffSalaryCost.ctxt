@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=StaffSalaryCost
+comment1.params=staff
+comment1.target=double\ calculateCost(Staff)
+numComments=2

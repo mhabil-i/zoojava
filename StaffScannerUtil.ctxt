@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=StaffScannerUtil
+comment1.params=info
+comment1.target=StaffScannerUtil(StaffInfo)
+comment2.params=
+comment2.target=void\ start()
+comment3.params=
+comment3.target=void\ addStaff()
+comment4.params=
+comment4.target=void\ removeStaff()
+comment5.params=staff
+comment5.target=void\ displayStaffInfo(Staff)
+comment6.params=prompt
+comment6.target=double\ getValidDouble(java.lang.String)
+numComments=7

@@ -1,16 +1,18 @@
 #BlueJ class context
 comment0.target=Animal
-comment1.params=name\ dietType\ meat\ sound
-comment1.target=Animal(java.lang.String,\ DietType,\ boolean,\ java.lang.String)
+comment1.params=name\ dietType\ foodWeight\ sound
+comment1.target=Animal(java.lang.String,\ DietType,\ double,\ java.lang.String)
 comment1.text=\r\n\ \ \ \ public\ class\ Animal\ {\r\n\ \ \ \ \ \ \ \ String\ name1;\ //\ [1]\ This\ is\ the\ field\ (belongs\ to\ the\ object)\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ public\ Animal(String\ name2)\ {\ //\ [2]\ This\ is\ the\ constructor\ parameter\r\n\ \ \ \ \ \ \ \ \ \ \ \ this.name1\ \=\ name2;\ \ \ \ \ \ \ //\ [3]\ Assign\ value\ from\ [2]\ \u2192\ into\ field\ [1]\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n
 comment2.params=
 comment2.target=java.lang.String\ getName()
 comment3.params=
 comment3.target=DietType\ getDietType()
 comment4.params=
-comment4.target=boolean\ isMeat()
+comment4.target=double\ getFoodWeight()
 comment5.params=
-comment5.target=java.lang.String\ sound()
+comment5.target=java.lang.String\ getSound()
 comment6.params=
 comment6.target=java.lang.String\ getOrganismType()
-numComments=7
+comment7.params=
+comment7.target=void\ describe()
+numComments=8

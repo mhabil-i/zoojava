@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=StaffInfo
+comment1.params=filename
+comment1.target=void\ loadStaffFile(java.lang.String)
+comment2.params=filename
+comment2.target=void\ saveStaffFile(java.lang.String)
+comment3.params=
+comment3.target=void\ restoreStaffData()
+comment4.params=stream
+comment4.target=void\ loadStaffData(java.io.InputStream)
+comment5.params=
+comment5.target=StaffInfo()
+comment6.params=
+comment6.target=java.util.List\ getStaffList()
+numComments=7

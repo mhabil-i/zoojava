@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=AnimalFoodCost
+comment1.params=animal
+comment1.target=double\ calculateCost(Animal)
+numComments=2

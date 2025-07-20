@@ -10,4 +10,6 @@ comment4.params=
 comment4.target=void\ removeAnimal()
 comment5.params=animal
 comment5.target=void\ displayAnimalInfo(Animal)
-numComments=6
+comment6.params=prompt
+comment6.target=double\ getValidDouble(java.lang.String)
+numComments=7

@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=SystemInfo
+comment1.params=animalInfo\ staffInfo
+comment1.target=java.lang.String\ getWelcomeMessage(AnimalInfo,\ StaffInfo)
+numComments=2

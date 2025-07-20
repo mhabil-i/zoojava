@@ -8,6 +8,8 @@
 
 import java.util.Scanner;
 import java.util.List;
+import java.io.InputStream;
+import java.net.URL;
 
 public class AnimalScannerUtil
 {
@@ -21,58 +23,82 @@ public class AnimalScannerUtil
     
     public void start(){
         while (true){
-            System.out.println("===animal menu===");
+            System.out.println("\n===== Animal Management: Jempol Zoo Management System =====\n");
             List<Animal> animals = animalInfo.getAnimals();
             
             //listing animals with numbers
-            for (int i = 0; i < animals.size(); i++){
-                System.out.println("[" + i + "] " + animals.get(i).getName());
+            if (animals.isEmpty() ){
+                System.out.println("No animals in record");
+            } else {
+                
+                for (int i = 0; i < animals.size(); i++){
+                    System.out.println("[" + (i + 1) + "] " + animals.get(i).getName());
+                }
+                
             }
             
             //show options
-            System.out.println("a. add new animal");
-            System.out.println("b. remove an animal from list");
-            System.out.println("x. exit");
+            System.out.println("\nOptions:");
+            System.out.println("\nEnter an animal number to display detail, or");
+            System.out.println("a. Add Animal");
+            System.out.println("b. Remove Animal");
+            System.out.println("c. Save Current Animal Database");
+            System.out.println("d. Restore Animal Database via GitHub (Requires Internet)");
+            System.out.println("x. Back to Main Menu");
             
-            System.out.println("enter a number to display animal or a letter to modify");
+            System.out.println("\nSelect an option: ");
             String input = scanner.nextLine();
             
             //handle menu input
-            if (input.equals("a")){
-                
-                addAnimal();
-                
-            } else if (input.equals("b")){
-                
-                removeAnimal();
-                
-            } else if (input.equals("x")){
-                
-                System.out.println("exiting...");
-                break;
-                
-            } else {
-                
-                try {
+            switch (input) {
+                case "a":
                     
-                    int index = Integer.parseInt(input);
+                    addAnimal();
+                    break;
                     
-                    if (index >= 0 && index < animals.size()){
+                case "b":
+                    
+                    removeAnimal();
+                    break;
+                    
+                case "c":
+                    
+                    animalInfo.saveAnimalFile("Animal_Data.txt");
+                    break;
+                
+                case "d":
+                    
+                    animalInfo.restoreAnimalData();
+                    break;
+                
+                case "x":
+                    
+                    System.out.println("exiting...");
+                    return;
+                    
+                default:
+                    
+                    try {
                         
-                        displayAnimalInfo(animals.get(index));
+                        int index = Integer.parseInt(input);
                         
-                    } else {
+                        if ( index < 1 || index > animals.size() ){
+                            
+                            System.out.println("Invalid animal number");
+                            
+                        } else {
+                            
+                            displayAnimalInfo(animals.get(index - 1));
+                            
+                        }
                         
-                        System.out.println("invalid animal number");
+                    } catch (NumberFormatException e){
+                        
+                        System.out.println("Invalid input. Enter either number or 'a', 'b', 'c', 'd', or 'x' to exit");
                         
                     }
+                    break;
                     
-                } catch (NumberFormatException e){
-                    
-                    System.out.println("invalid input. enter either number or 'a' or 'b', x to exit");
-                    
-                }
-                
             }
             
         }
@@ -97,59 +123,50 @@ public class AnimalScannerUtil
         }
         
         //prompt user to choose animal diet type using single letter
-        System.out.print("enter the " + name + " diet type (c = carnivore, h = herbivore, o = omnivore): ");
-        String dietLetter = scanner.nextLine().toLowerCase(); //prevent direct letter
+        System.out.print("Enter the " + name + " diet type (c = Carnivore, h = Herbivore, o = Omnivore): ");
+        String dietInputRaw = scanner.nextLine().toLowerCase().trim(); //prevent direct letter
         
+        if (dietInputRaw.isEmpty() ){
+            System.out.println("Please enter animal diet type");
+            return;
+        }
+        
+        char dietChar = dietInputRaw.charAt(0);
         DietType dietType;
-        switch (dietLetter) {
-            case "c":
+        switch (dietChar) {
+            case 'c':
                 dietType = DietType.CARNIVORE;
                 break;
-            case "h":
+            case 'h':
                 dietType = DietType.HERBIVORE;
                 break;
-            case "o":
+            case 'o':
                 dietType = DietType.OMNIVORE;
                 break;
             default:
                 //invalid input; notify user and exit method
-                System.out.println("invalid diet type. select letter c, h or o");
+                System.out.println("Invalid diet type. Eelect letter c, h or o");
                 return;
         }
         
-        System.out.println("is the " + name + " a meat? (y/n)");
-        String meatLetter = scanner.nextLine().toLowerCase();
+        double foodWeight = getValidDouble("Enter " + name + "'s food weight (kg) needed per day");
         
-        boolean isMeat;
-        switch (meatLetter){
-            case "y":
-                isMeat = true;
-                break;
-            case "n":
-                isMeat = false;
-                break;
-            default:
-                System.out.println("wrong input, y/n only");
-                return;
-        }
-        
-        System.out.println("what does this " + name + " produced?");
-        String sound = scanner.nextLine();
+        System.out.println("What does this " + name + " makes?");
+        String sound = scanner.nextLine().trim();
         
         //create new Animal object with the data given
-        Animal newAnimal = new Animal(name, dietType, isMeat, sound);
+        Animal newAnimal = new Animal(name, dietType, foodWeight, sound);
         
         //add animal into animalInfo
         animalInfo.getAnimals().add(newAnimal);
         
         //confirm animal added
-        System.out.println(name + " animal added");
+        System.out.println("Animal " + name + " added");
         
     }
     
     private void removeAnimal(){
-        System.out.println("enter animal number to remove");
-        
+        System.out.println("Enter animal number to remove");
         
         try {
             
@@ -174,57 +191,26 @@ public class AnimalScannerUtil
             System.out.println("invalid input, enter number only");
         }
     }
-        
+    
     private void displayAnimalInfo(Animal animal){
-        System.out.println("the animal is " + animal.getName());
-        System.out.println(animal.getName() + " sound is " + animal.sound());
-        
-        if ( animal.isMeat() ) {
-            System.out.println(animal.getName() + " is meat");
-        } else{
-            System.out.println(animal.getName() + " is not meat");
-        }
-        
-        System.out.println(animal.getName() + " is " + animal.getDietType());
-        
-        DietType type = animal.getDietType();
-        //get selected animal DietType from enum of carnivore, omnivore, herbivore
-        
-        if (type == DietType.CARNIVORE || type == DietType.OMNIVORE){
-            
-                System.out.println(animal.getName() + " eat these animals: ");
                 
-                for ( Animal prey : animalInfo.getAnimals() ){
-                    
-                    if (prey.isMeat() ) {
-                        
-                        if (prey.getName().equalsIgnoreCase(animal.getName() ) ){
-                            System.out.println("-other " + prey.getName() );
-                        } else {
-                        
-                        System.out.println("- " + prey.getName() );
-                        
-                    }
-                }
-                
-            }
-            
-            if (type == DietType.HERBIVORE || type == DietType.OMNIVORE){
-                
-                System.out.println(animal.getName() + " eats these plants:");
-                
-                for (Plant plant : animalInfo.getPlants() ) {
-                    
-                    System.out.println( "- " +plant.getName() );
-                    
-                }
-                
-            }
-        
-        }
+        System.out.println("\n---Animal Details---");
+        animal.describe();
+        System.out.println("-----------------------");
     
     }
-
+    
+    private double getValidDouble(String prompt) {
+            while (true) {
+                try {
+                    System.out.print(prompt + ": ");
+                    return Double.parseDouble(scanner.nextLine() );
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input: Enter a valid number");
+                }
+            }
+    }
+    
 }
         
 
