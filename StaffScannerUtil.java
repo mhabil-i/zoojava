@@ -167,7 +167,7 @@ public class StaffScannerUtil
                 }
             } catch (NumberFormatException e){
                 System.out.println("Invalid input. Enter a valid number");
-            }
+            } catch (IllegalArgumentException e) {System.out.println(e.getMessage() );}
         }
 
         
@@ -205,7 +205,7 @@ public class StaffScannerUtil
         } catch (NumberFormatException e) {
             //input not an integer number
             System.out.println("Invalid input: Enter number only");
-        }
+        } 
     }
         
     private void displayStaffInfo(Staff staff){
@@ -223,8 +223,8 @@ public class StaffScannerUtil
                 return Double.parseDouble(scanner.nextLine() );
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input: Enter a valid number");
-            }
-        }
+            } catch (IllegalArgumentException e) {System.out.println(e.getMessage() );}
+        } 
     }
     
 }

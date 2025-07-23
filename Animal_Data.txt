@@ -1,2 +1,3 @@
 animal,elephant,HERBIVORE,200.0,trumpet
 animal,Bear,OMNIVORE,100.0,roar
+animal,wold,CARNIVORE,50.0,awoooo

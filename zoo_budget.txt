@@ -1,0 +1,15 @@
+===== Jempol Zoo Budget Report =====
+Animal Food Costs: 
+ - elephant : RM30000.0
+ - Bear : RM30000.0
+ - wolf : RM22500.0
+Total Animal Food Costs: RM82,500.00
+
+Staff Salaries:    
+ - Zahid : RM3625.0
+ - Bedah : RM4480.0
+ - makmur : RM1550.0
+Total Staff Salaries:    RM9,655.00
+
+TOTAL BUDGET:      RM92,155.00
+====================================

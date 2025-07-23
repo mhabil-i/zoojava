@@ -90,6 +90,7 @@ public class AnimalInfo
             System.out.println("Animal database restored from 'https://raw.githubusercontent.com/mhabil-i/zoojavadb/main/Animal_Data.txt' ");
         } catch (Exception e) {
             System.err.println("Animal database could not be restored: " + e.getMessage() );
+            throw new RuntimeException(e); //error message for GUI
         }
         
     }

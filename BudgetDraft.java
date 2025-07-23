@@ -97,4 +97,13 @@ public class BudgetDraft
         }
         return total;
     }
+    
+    public double getTotalAnimalFoodCost(){
+        return totalAnimalFoodCost();
+    }
+    
+    public double getTotalStaffCost(){
+        return totalStaffCost();
+    }
+
 }

@@ -98,6 +98,7 @@ public class StaffInfo
             System.out.println("Staff database restored from 'https://raw.githubusercontent.com/mhabil-i/zoojavadb/main/Staff_Data.txt' ");
         } catch (Exception e) {
             System.err.println("Staff database could not be restored: " + e.getMessage() );
+            throw new RuntimeException(e); //error message for GUI
         }
         
     }
