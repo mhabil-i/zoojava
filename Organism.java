@@ -3,7 +3,7 @@
 
 public abstract class Organism
 {
-    private String name;
+    protected String name;
     
     public  Organism(String name)
     {

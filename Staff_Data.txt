@@ -1,3 +1,2 @@
-staff,Abu,ZOOKEEPER,2500.0,15.0,10
 staff,Zahid,VET,3500.0,25.0,5
-staff,Shahirah,VET,3500.0,24.0,24
+staff,Bedah,VET,4000.0,20.0,24

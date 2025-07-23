@@ -8,7 +8,6 @@ class Animal extends Organism implements AnimalBehavior
 //make sure declare all
 {
     //using encapsulation must be followed by getter or ide became crazy asking for the class to be abstract
-    private String name;
     private DietType dietType;
     private double foodWeight;
     private String sound;
@@ -33,10 +32,6 @@ class Animal extends Organism implements AnimalBehavior
     }
     
     //getter method
-    public String getName(){
-        return name;
-    }
-    
     public DietType getDietType(){
         return dietType;
     }

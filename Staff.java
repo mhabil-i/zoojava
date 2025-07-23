@@ -8,7 +8,6 @@ class Staff extends Organism implements StaffSalary
 //make sure declare all
 {
     //using encapsulation must be followed by getter or ide became crazy asking for the class to be abstract
-    private String name;
     private StaffPosition staffPosition;
     private double minSalary;
     private double otSalary;
@@ -35,10 +34,6 @@ class Staff extends Organism implements StaffSalary
     }
     
     //getter method
-    public String getName(){
-        return name;
-    }
-    
     public StaffPosition getStaffPosition(){
         return staffPosition;
     }
@@ -59,6 +54,16 @@ class Staff extends Organism implements StaffSalary
     @Override
     public String getOrganismType(){
         return "Staff";
+    }
+    
+    @Override
+    public double totalSalary() {
+        return getMinSalary() + ( getOtSalary() * getOtHours() );
+    }
+    
+    @Override
+    public void validateSalary() {
+        if (getMinSalary() < 2000) throw new IllegalArgumentException("Salary must be higher than RM2000 ");
     }
     
     @Override

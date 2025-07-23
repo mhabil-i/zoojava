@@ -144,13 +144,23 @@ public class StaffScannerUtil
                 return;
         }
         
-        double minSalary = getValidDouble("Enter " + name + "'s base salary");
+        double minSalary;
+        while (true) {
+            minSalary = getValidDouble("Enter " + name + "'s base salary");
+            
+            //dummy staff for validating user input in minSalary
+            Staff tempStaff = new Staff ("dummy staff", StaffPosition.VET, minSalary, 0, 0);
+            try {
+                tempStaff.validateSalary();
+                break;
+            } catch (IllegalArgumentException e) {System.out.println(e.getMessage() );}
+        }
         double otSalary = getValidDouble("Enter " + name + "'s overtime rate per hour");
         
         int otHours = -1;
         while ( otHours < 0 ) {
             try {
-                System.out.print("Enter how many hours has " + name + " worked overtime: ");
+                System.out.print("Enter how many hours has " + name + " worked overtime on this month: ");
                 otHours = Integer.parseInt( scanner.nextLine() );
                 if ( otHours < 0 ) {
                     System.out.println("Hour cannot be negative");
@@ -177,7 +187,7 @@ public class StaffScannerUtil
         try {
             
             //try to detect animal input as integer index
-            int index = Integer.parseInt(scanner.nextLine());
+            int index = Integer.parseInt(scanner.nextLine()) - 1;
             
             //check if user interger input is valid within list size)
             if ( index >= 0 && index < staffInfo.getStaffList().size() ) {

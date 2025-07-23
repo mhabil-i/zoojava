@@ -1,14 +1,13 @@
 ===== Jempol Zoo Budget Report =====
 Animal Food Costs: 
- - tiger : RM450.0
- - elephant : RM1000.0
-Total Animal Food Costs: RM1,450.00
+ - tiger : RM13500.0
+ - elephant : RM30000.0
+Total Animal Food Costs: RM43,500.00
 
 Staff Salaries:    
- - Abu : RM2650.0
  - Zahid : RM3625.0
- - Shahirah : RM4076.0
-Total Staff Salaries:    RM10,351.00
+ - Bedah : RM4480.0
+Total Staff Salaries:    RM8,105.00
 
-TOTAL BUDGET:      RM11,801.00
+TOTAL BUDGET:      RM51,605.00
 ====================================

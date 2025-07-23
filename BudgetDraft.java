@@ -36,7 +36,7 @@ public class BudgetDraft
         System.out.println("Staff Salaries: ");
         
         for (Staff staff : staffInfo.getStaffList() ) {
-            System.out.println( " - " + staff.getName() + " : " + StaffSalaryCost.calculateCost(staff) );
+            System.out.println( " - " + staff.getName() + " : " + staff.totalSalary() );
         }
         
         System.out.println("\nTotal Staff Salaries: " + currency.format(staffCost) );
@@ -66,7 +66,7 @@ public class BudgetDraft
             writer.write("Staff Salaries:    " + "\n");
             
             for (Staff staff : staffInfo.getStaffList() ) {
-            writer.write( " - " + staff.getName() + " : RM" + StaffSalaryCost.calculateCost(staff) + "\n");
+            writer.write( " - " + staff.getName() + " : RM" + staff.totalSalary() + "\n");
             }
             
             writer.write("Total Staff Salaries:    " + currency.format(staffCost)  + "\n\n");
@@ -93,7 +93,7 @@ public class BudgetDraft
         double total = 0;
         
         for (Staff staff : staffInfo.getStaffList() ) {
-            total += StaffSalaryCost.calculateCost(staff);
+            total += staff.totalSalary();
         }
         return total;
     }

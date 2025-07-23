@@ -1,2 +1,2 @@
-animal,tiger,CARNIVORE,30.0,roar
 animal,elephant,HERBIVORE,200.0,trumpet
+animal,Bear,OMNIVORE,100.0,roar

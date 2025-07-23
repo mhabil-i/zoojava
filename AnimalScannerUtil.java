@@ -171,7 +171,7 @@ public class AnimalScannerUtil
         try {
             
             //try to detect animal input as integer index
-            int index = Integer.parseInt(scanner.nextLine());
+            int index = Integer.parseInt(scanner.nextLine()) - 1;
             
             //check if user interger input is valid within list size)
             if ( index >= 0 && index < animalInfo.getAnimals().size() ) {
